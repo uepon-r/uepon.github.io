@@ -7,9 +7,8 @@ main {
 }
 
 body{
-  background-color:antiquewhite;
+  background-color:rgb(243,228,220);
   color:#323031;
-  letter-spacing: 0.08em;
   font-family:'Noto Sans JP', sans-serif;
 }
 
@@ -28,28 +27,29 @@ section{
 }
 
 a{
-  color: #1abc9c;
+  color: rgb(60,142,130);
+  font-weight: bold;
 }
 
 a:hover {
-  color: #e74c3c;
+  color: rgb(238,181,184);
 }
 
 .ranking li:nth-child(1) {
-  background-color:rgba(255,215,0,0.3) ;
+  background-color:rgba(237,227,87,0.8) ;
   /* ↑opacityは全体の透過度に影響を与えるので、色だけの透過度はrgb表記をする */
 }
 .ranking li:nth-child(2) {
-  background-color: rgba(189, 195, 199, 0.3);
+  background-color: rgba(237,227,87,0.4);
 }
 .ranking li:nth-child(3) {
-  background-color: rgba(230, 126, 34, 0.3);
+  background-color: rgba(237,227,87,0.2);
 }
 /* ↑li タグの何番目の後ろに色をつける */
 
 .ranking li{
   counter-increment: rank;
-  padding: 20px 20px;
+  padding: 15px 40px;
   border-radius: 50px;
   margin-bottom: 20px;
 }
@@ -62,25 +62,26 @@ a:hover {
 
 .heading{
     background-color: #fff;
-    border: #2ecc71 solid 4px;
+    border: rgb(238,181,184) solid 4px;
      /* 色　実線の太さ */
     margin-bottom:60px;
     padding: 20px 40px;
+    letter-spacing: 0.09em;
     position: relative;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
 }
  /* 余白はpadding */
 
 .heading::before{
-  border-color: #2ecc71 transparent transparent transparent;
+  border-color: rgb(238,181,184) transparent transparent transparent;
   border-style: solid;
-  border-width: 40px 20px 0 20px;
-  bottom: -40px;
+  border-width: 15px 10px 0 10px;
+  bottom: -17px;
   content: "";
   height: 0;
   width: 0;
-  margin-left: -20px;
+  margin-left: -10px;
   position: absolute;
   left: 50%;
 }
@@ -88,12 +89,12 @@ a:hover {
 .heading::after{
   border-color: #fff transparent transparent transparent;
   border-style: solid;
-  border-width: 40px 20px 0 20px;
-  bottom: -30px;
+  border-width: 15px 10px 0 10px;
+  bottom: -10px;
   content: "";
   height: 0;
   width: 0;
-  margin-left: -20px;
+  margin-left: -10px;
   position: absolute;
   left: 50%;
 }
@@ -117,6 +118,17 @@ section + section{
 }
 /* sectionどうしに間を空ける */
 
+.profile_subtitle{
+  background-color: rgb(238,181,184);
+  color: #fff;
+  font-size:12px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 14px;
+}
+/* display: inline-block の必要性をあまり理解できていない */
+
 .profile_image {
   border-radius: 50%;
   height: 200px;
@@ -133,10 +145,12 @@ section + section{
 .profile_text{
   margin-left: 30px;
   font-size:12px;
+  letter-spacing: 0.07em;
 }
 
 .profile_desc{
-  margin-top: 20px;
+  margin-top: 30px;
+  font-size:14px;
 }
 /* テキストの左横にマージン入れたいわ */
 /* class名は重複しなければ大丈夫だわ */
@@ -148,8 +162,109 @@ section + section{
   letter-spacing: 0.07em;
 }
 
+.profile_box{
+  padding-left: 20px;
+  position: relative;
+}
+
+.profile_box::before{
+background-color:rgb(238,181,184);
+border-radius: 2px;
+content: "";
+display: block;
+height: 100%;
+left:0;
+position: absolute;
+top: 0;
+width: 4px;
+}
+
+.profile_box + .profile_box {
+  margin-top: 20px;
+}
+
 .under{
-  font-size:14px;
+  font-size:16px;
+  font-weight: bold;
   line-height: 1.6;
   margin-bottom: 5px;
+}
+
+#accordion {
+  display: none;
+}
+
+.accordion_toggle{
+  border:rgb(238,181,184) solid 4px;
+  background-color:rgb(145, 145, 145);
+  border-radius:30px;
+  display:block;
+  height:60px;
+  width:120px;
+  margin:0 auto;
+  position:relative;
+  padding-bottom:10px 0px;
+}
+
+.accordion_toggle span{
+  margin-top: -12px;
+  position:absolute;
+  top:50%;
+}
+
+.accordion_toggle span:nth-child(1){
+  margin-right:20px;
+  right:100%;
+}
+.accordion_toggle span:nth-child(2){
+  margin-left:20px;
+  left:100%;
+}
+
+.accordion_toggle::before{
+  background-color:#fff;
+  display:block;
+  content:"";
+  border-radius:50%;
+  height:40px;
+  left:6px;
+  position:absolute;
+  top:6px;
+  transition:0.2s;
+  width:40px;
+}
+
+#accordion:checked + .accordion_toggle{
+  background-color: rgb(228, 228, 228) ;
+}
+
+#accordion:checked + .accordion_toggle::before{
+  left:66px;
+}
+
+.accordion_text{
+  height:0;
+  overflow:hidden;
+  text-align: center;
+}
+#accordion:checked~.accordion_text{
+  height:100%;
+  transition:0.2s;
+}
+
+.accordion_image img {
+  margin: 30px;
+}
+
+.animation {
+  animation: change_color 2s linear infinite;
+}
+
+@keyframes change_color {
+  0% {color:red;}
+  20%{color:#e57e22;}
+  40%{color:#f1c40f;}
+  60%{color:#1abc9c;}
+  80%{color:#2276e5;}
+  100%{color:#e74c3c;}
 }
