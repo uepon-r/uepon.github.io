@@ -6,10 +6,18 @@ main {
   padding: 40px 0 40px 0;
 }
 
+body{
+  background-color:antiquewhite;
+  color:#323031;
+  letter-spacing: 0.08em;
+  font-family:'Noto Sans JP', sans-serif;
+}
+
 section{
-  background: #eee;
+  background: #fff;
   padding: 40px;
   border-radius: 10px;
+  box-shadow:0px 0px 12px #dfdfdfef;
 }
 
 /* 後ろに色をつけたければ、sectionタグにclassをつける */
@@ -124,6 +132,7 @@ section + section{
 
 .profile_text{
   margin-left: 30px;
+  font-size:12px;
 }
 
 .profile_desc{
@@ -133,5 +142,14 @@ section + section{
 /* class名は重複しなければ大丈夫だわ */
 
 .profile_myname{
+
+  font-size:4rem;
   margin-bottom: 20px;
+  letter-spacing: 0.07em;
+}
+
+.under{
+  font-size:14px;
+  line-height: 1.6;
+  margin-bottom: 5px;
 }
